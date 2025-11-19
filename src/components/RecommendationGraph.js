@@ -44,17 +44,16 @@ const RecommendationGraph = () => {
       nodes: {
         shape: 'dot',
         size: 20,
-        font: { size: 16 }
+        font: { size: 16 },
       },
       edges: {
-        smooth: { type: 'continuous' }
+        smooth: { type: 'continuous' },
       },
-      physics: { stabilization: false }
+      physics: { stabilization: false },
     };
 
     new Network(containerRef.current, data, options);
-
-  }, [craftData]);
+}, [selectedCraft]);
 
   return (
     <div>
