@@ -2,38 +2,39 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Network } from 'vis-network/standalone';
 import 'vis-network/styles/vis-network.css';
 
+// ✅ FIX: craftData moved outside the component
+const craftData = {
+  Pottery: {
+    nodes: [
+      { id: 1, label: 'Pottery' },
+      { id: 2, label: 'Terracotta' },
+      { id: 3, label: 'Ceramic Art' },
+      { id: 4, label: 'Clay Modeling' },
+    ],
+    edges: [
+      { from: 1, to: 2 },
+      { from: 1, to: 3 },
+      { from: 1, to: 4 },
+    ]
+  },
+  Weaving: {
+    nodes: [
+      { id: 1, label: 'Weaving' },
+      { id: 2, label: 'Handloom' },
+      { id: 3, label: 'Embroidery' },
+      { id: 4, label: 'Macrame' },
+    ],
+    edges: [
+      { from: 1, to: 2 },
+      { from: 1, to: 3 },
+      { from: 1, to: 4 },
+    ]
+  }
+};
+
 const RecommendationGraph = () => {
   const containerRef = useRef(null);
   const [selectedCraft, setSelectedCraft] = useState('Pottery');
-
-  const craftData = {
-    Pottery: {
-      nodes: [
-        { id: 1, label: 'Pottery' },
-        { id: 2, label: 'Terracotta' },
-        { id: 3, label: 'Ceramic Art' },
-        { id: 4, label: 'Clay Modeling' },
-      ],
-      edges: [
-        { from: 1, to: 2 },
-        { from: 1, to: 3 },
-        { from: 1, to: 4 },
-      ]
-    },
-    Weaving: {
-      nodes: [
-        { id: 1, label: 'Weaving' },
-        { id: 2, label: 'Handloom' },
-        { id: 3, label: 'Embroidery' },
-        { id: 4, label: 'Macrame' },
-      ],
-      edges: [
-        { from: 1, to: 2 },
-        { from: 1, to: 3 },
-        { from: 1, to: 4 },
-      ]
-    }
-  };
 
   useEffect(() => {
     if (!containerRef.current) return;
@@ -53,7 +54,7 @@ const RecommendationGraph = () => {
     };
 
     new Network(containerRef.current, data, options);
-}, [selectedCraft]);
+  }, [selectedCraft]); // craftData is now static → no ESLint error
 
   return (
     <div>
