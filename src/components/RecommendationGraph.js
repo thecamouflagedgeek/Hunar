@@ -54,7 +54,7 @@ const RecommendationGraph = () => {
 
     new Network(containerRef.current, data, options);
 
-  }, [selectedCraft]);
+  }, [craftData]);
 
   return (
     <div>

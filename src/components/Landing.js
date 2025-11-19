@@ -4,10 +4,8 @@ import { motion } from 'framer-motion';
 import artisan1 from '../assets/artisan1.jpeg';
 import artisan2 from '../assets/artisan2.webp';
 import artisan3 from '../assets/artisan3.avif';
-import Card from './Card';
 import heroVideo from '../assets/heroVideo.mp4';
 import bgImage from '../assets/bg.jpg';
-import { FaBookOpen, FaLaptop, FaPeopleCarry, FaHandsHelping} from 'react-icons/fa';
 import WhatWeOffer from './WhatWeOffer';
 
 const Landing = () => {
